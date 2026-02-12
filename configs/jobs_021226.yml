@@ -38,7 +38,7 @@ jobs:
     date_end: '2026-02-13'
 
   coaching_override: AHT Hold Time
-  reference_link: https://app.powerbi.com/groups/me/reports/hold_time
+  reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=e929be17-0048-4c55-b608-281f82cd1896
 
   validity:
     denominator_limit: 10
@@ -72,7 +72,7 @@ jobs:
     date_end: '2026-02-13'
 
   coaching_override: AHT Talk Time
-  reference_link: https://app.powerbi.com/groups/me/reports/hold_time
+  reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=e929be17-0048-4c55-b608-281f82cd1896
 
   validity:
     denominator_limit: 10
@@ -106,7 +106,7 @@ jobs:
     date_end: '2026-02-13'
 
   coaching_override: Smart Offer
-  reference_link: https://app.powerbi.com/groups/me/reports/hold_time
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
 
   validity:
     denominator_limit: 100
@@ -140,7 +140,7 @@ jobs:
     date_end: '2026-02-13'
 
   coaching_override: OCR Improvement
-  reference_link: https://app.powerbi.com/groups/me/reports/hold_time
+  reference_link: https://app.powerbi.com/groups/me/reports/84002b28-3d13-4020-a787-3d635c9923be/ReportSectionc53c8b56e21c87beea52?experience=power-bi
 
   validity:
     denominator_limit: 10
@@ -174,7 +174,7 @@ jobs:
     date_end: '2026-02-13'
 
   coaching_override: Increased Transfer Rate
-  reference_link: https://app.powerbi.com/groups/me/reports/84002b28-3d13-4020-a787-3d635c9923be/ReportSectionc53c8b56e21c87beea52?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&openReportSource=ReportInvitation&experience=power-bi
+  reference_link: https://app.powerbi.com/groups/me/reports/84002b28-3d13-4020-a787-3d635c9923be/ReportSectionc53c8b56e21c87beea52?experience=power-bi
   
   validity:
     denominator_limit: 50
@@ -277,7 +277,7 @@ jobs:
     date_end: '2026-02-13'
 
   coaching_override: AHT Hold Time
-  reference_link: https://app.powerbi.com/groups/me/reports/hold_time
+  reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=3895560e-05e6-45a1-be3c-45aa5ce4068d
 
   validity:
     denominator_limit: 10
@@ -311,7 +311,7 @@ jobs:
     date_end: '2026-02-13'
 
   coaching_override: AHT Talk Time
-  reference_link: https://app.powerbi.com/groups/me/reports/hold_time
+  reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=3895560e-05e6-45a1-be3c-45aa5ce4068d
 
   validity:
     denominator_limit: 10
@@ -345,7 +345,7 @@ jobs:
     date_end: '2026-02-13'
 
   coaching_override: Smart Offer
-  reference_link: https://app.powerbi.com/groups/me/reports/hold_time
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
 
   validity:
     denominator_limit: 100
@@ -380,7 +380,7 @@ jobs:
     date_end: '2026-02-13'
 
   coaching_override: OCR Improvement
-  reference_link: https://app.powerbi.com/groups/me/reports/hold_time
+  reference_link: https://app.powerbi.com/groups/me/reports/84002b28-3d13-4020-a787-3d635c9923be/ReportSectionc53c8b56e21c87beea52?experience=power-bi
 
   validity:
     denominator_limit: 10
