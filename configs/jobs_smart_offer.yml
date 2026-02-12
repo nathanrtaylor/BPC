@@ -1,0 +1,55 @@
+# ==========================================================
+# GLOBAL DEFAULTS
+# ==========================================================
+defaults:
+
+  # Where compiled SQL templates live
+  sql_templates_dir: sql_templates
+
+  # Where Excel outputs are written
+  output_dir: C:/Users/nathan.taylor/Asurion/Coaching & Technology - BPC Data/Proposed_Cohorts
+
+   # Log directory
+  log_dir: logs
+
+   # Optional global behavior flags
+  apply_site_exclusions_by_default: true
+
+# ==========================================================
+# JOB DEFINITIONS
+# ==========================================================
+jobs:
+
+  # ======================================================
+  # 3 ATT MOB – Smart Offer
+  # ======================================================
+- name: ATT_MOB_smart_offer
+
+  query:
+    query_type: smart_offer
+    sql_template: Smart_offer_data.sql
+
+  inputs:
+    client: A
+    business_unit: M
+    cohort_id: '1'
+    date_start: '2026-01-30'
+    date_end: '2026-02-13'
+
+  coaching_override: Smart Offer
+  reference_link: https://app.powerbi.com/groups/me/reports/hold_time
+
+  validity:
+    denominator_limit: 100
+
+  eligibility:
+    site_exclude_contains: []
+    filters: []
+
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 0.25
+    metric_direction: higher_is_good
+    outlier_side: worst
+
+  comparisons: []

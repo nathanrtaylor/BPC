@@ -471,7 +471,7 @@ HAVING
     AND SUM(c.InboundCalls) > 0 
 )
 
-SELECT cs.BusinessUnit_, cs.Client_, CAST(cs.Employee as VARCHAR) as expert_id, 
+SELECT cs.BusinessUnit_, cs.Client_, CAST(cs.Employee as VARCHAR) as expert_id, NULL as site,
 	sum(Total_Smart_Offer_Behaviors) as num, 
 	sum(cs.Sales_Opportunity_Connected_Home)*10 as den, 
     ROUND(

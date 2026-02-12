@@ -112,7 +112,7 @@ jobs:
     denominator_limit: 100
 
   eligibility:
-    site_exclude_contains: ["trn"]
+    site_exclude_contains: []
     filters: []
 
   selection:
@@ -135,7 +135,7 @@ jobs:
   inputs:
     client: MOB-AT&T
     metric: OCR
-    cohort_id: '1'
+    cohort_id: '3'
     date_start: '2026-01-30'
     date_end: '2026-02-13'
 
@@ -351,7 +351,7 @@ jobs:
     denominator_limit: 100
 
   eligibility:
-    site_exclude_contains: ["trn"]
+    site_exclude_contains: []
 
     filters: []
 
@@ -487,7 +487,7 @@ jobs:
     denominator_limit: 100
 
   eligibility:
-    site_exclude_contains: ["trn"]
+    site_exclude_contains: []
     filters: []
 
   selection:
