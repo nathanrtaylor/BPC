@@ -1,2 +1,0 @@
-[console_scripts]
-outlier-pipeline = src.cli:main
