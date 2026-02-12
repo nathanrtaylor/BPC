@@ -1,0 +1,432 @@
+# ==========================================================
+# GLOBAL DEFAULTS
+# ==========================================================
+defaults:
+  # Where compiled SQL templates live
+  sql_templates_dir: sql_templates
+
+  # Where Excel outputs are written
+  output_dir: "C:/Users/nathan.taylor/Asurion/Coaching & Technology - BPC Data/Proposed_Cohorts"
+
+  # Log directory
+  log_dir: logs
+
+  # Optional global behavior flags
+  apply_site_exclusions_by_default: true
+
+# ==========================================================
+# JOB DEFINITIONS
+# ==========================================================
+jobs:
+
+  # ======================================================
+  # 1️⃣ ATT MOB – Hold Time (Percentile Outlier Model)
+  # ======================================================
+  - name: ATT_MOB_hold_time
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+      extra_params: {}
+
+    inputs:
+      client: "MOB-AT&T"
+      metric: "Hold Time"
+      cohort_id: "1"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 10
+      outlier_limit_target: percentile
+      outlier_limit: 0.75
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+    coaching_override: "AHT Hold Time"
+    reference_link: "https://app.powerbi.com/groups/me/reports/hold_time"
+
+  # ======================================================
+  # 2️⃣ ATT MOB – Talk Time 
+  # ======================================================
+  - name: ATT_MOB_talk_time
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+    inputs:
+      client: "MOB-AT&T"
+      metric: "Talk Time"
+      cohort_id: "1"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 10
+      outlier_limit_target: percentile
+      outlier_limit: 0.75
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+    coaching_override: "AHT Talk Time"
+    reference_link: "https://app.powerbi.com/groups/me/reports/hold_time"
+
+
+  # ======================================================
+  # 3 ATT MOB – Smart Offer
+  # ======================================================
+  - name: ATT_MOB_smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data.sql
+
+    inputs:
+      client: "A"
+      business_unit: "M"
+      cohort_id: "1"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 100 #smart offer denominator needs to be multiplied by 10 to account for all smart offer behaviors. This equates to 10 calls
+      outlier_limit_target: calc
+      outlier_limit: 0.25
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+    coaching_override: "Smart Offer"
+    reference_link: "https://app.powerbi.com/groups/me/reports/hold_time"
+
+    
+  # ======================================================
+  # 4 ATT MOB – One Call Resolution
+  # ======================================================
+  - name: ATT_MOB_OCR
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+    inputs:
+      client: "MOB-AT&T"
+      metric: "OCR"
+      cohort_id: "1"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 10
+      outlier_limit_target: percentile
+      outlier_limit: 0.25
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+    coaching_override: "OCR Improvement"
+    reference_link: "https://app.powerbi.com/groups/me/reports/hold_time"
+
+    # ======================================================
+    # 5 ATT MOB – Client Transfers
+    # ======================================================
+  - name: ATT_MOB_Transfers
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+    inputs:
+      client: "MOB-AT&T"
+      metric: "Client Transfers"
+      cohort_id: "1"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 50
+      outlier_limit_target: calc
+      outlier_limit: 0.15
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+    coaching_override: "Increased Transfer Rate"
+    reference_link: "https://app.powerbi.com/groups/me/reports/84002b28-3d13-4020-a787-3d635c9923be/ReportSectionc53c8b56e21c87beea52?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&openReportSource=ReportInvitation&experience=power-bi"
+
+    # ======================================================
+    # 6 Mcafee – CRT
+    # ======================================================
+  - name: Mcafee_CRT
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+    inputs:
+      client: "McAfee"
+      metric: "CRT"
+      cohort_id: "7"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 10
+      outlier_limit_target: calc
+      outlier_limit: 2000
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+    coaching_override: "Efficient Issue Resolution"
+    reference_link: "https://app.prod-uswest04.observe.ai/reporting-dashboard/111"
+
+    # ======================================================
+    # 7 Mcafee – Cancel Rate
+    # ======================================================
+  - name: Mcafee_Cancel
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+    inputs:
+      client: "McAfee"
+      metric: "cancellation rate"
+      cohort_id: "7"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 1
+      outlier_limit_target: percentile
+      outlier_limit: .8
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+    coaching_override: "Cancel Rate Reduction"
+    reference_link: "https://app.powerbi.com/groups/me/reports/0109b8aa-01a4-4f93-8457-2d588b64e1a"
+
+  # ======================================================
+  # 8 VZW MOB – Hold Time (Percentile Outlier Model)
+  # ======================================================
+  - name: VZW_MOB_hold_time
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+      extra_params: {}
+
+    inputs:
+      client: "MOB-Verizon"
+      metric: "Hold Time"
+      cohort_id: "1"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 10
+      outlier_limit_target: percentile
+      outlier_limit: 0.75
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+    coaching_override: "AHT Hold Time"
+    reference_link: "https://app.powerbi.com/groups/me/reports/hold_time"
+
+  # ======================================================
+  # 9 VZW MOB – Talk Time 
+  # ======================================================
+  - name: VZW_MOB_talk_time
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+    inputs:
+      client: "MOB-Verizon"
+      metric: "Talk Time"
+      cohort_id: "1"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 10
+      outlier_limit_target: percentile
+      outlier_limit: 0.75
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+    coaching_override: "AHT Talk Time"
+    reference_link: "https://app.powerbi.com/groups/me/reports/hold_time"
+
+
+  # ======================================================
+  # 10 VZW MOB – Smart Offer
+  # ======================================================
+  - name: VZW_MOB_smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data.sql
+
+    inputs:
+      client: "V"
+      business_unit: "M"
+      cohort_id: "1"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 100 #smart offer denominator needs to be multiplied by 10 to account for all smart offer behaviors. This equates to 10 calls
+      outlier_limit_target: calc
+      outlier_limit: 0.25
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+    coaching_override: "Smart Offer"
+    reference_link: "https://app.powerbi.com/groups/me/reports/hold_time"
+
+    
+  # ======================================================
+  # 11 VZW MOB – One Call Resolution
+  # ======================================================
+  - name: VZW_MOB_OCR
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+    inputs:
+      client: "MOB-Verizon"
+      metric: "OCR"
+      cohort_id: "3"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 10
+      outlier_limit_target: percentile
+      outlier_limit: 0.25
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+    coaching_override: "OCR Improvement"
+    reference_link: "https://app.powerbi.com/groups/me/reports/hold_time"    
+
+  # ======================================================
+  # 12 VZW SOL – Sentiment (ERP)
+  # ======================================================
+  - name: VZW_SOL_Sentiment
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+    inputs:
+      client: "PSS-Verizon"
+      metric: "erp"
+      cohort_id: "10"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 2
+      outlier_limit_target: calc
+      outlier_limit: 85
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+    coaching_override: "Sentiment"
+    reference_link: "https://app.powerbi.com/links/3V-89eNz-H?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare" 
+
+  # ======================================================
+  # 13 VZW SOL – Sales Confidence
+  # ======================================================
+  - name: VZW_SOL_Sales_Confidence
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+    inputs:
+      client: "PSS-Verizon"
+      metric: "nsp100"
+      cohort_id: "13"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 50
+      outlier_limit_target: calc
+      outlier_limit: 0.01
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+    coaching_override: "Sales Confidence"
+    reference_link: "https://app.powerbi.com/groups/me/reports/0109b8aa-01a4-4f93-8457-2d588b64e1a4/ReportSectionf67913b8dea87eb48b24?openReportSource=ReportInvitation&ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi"
+
+  # ======================================================
+  #  14 VZW SOL – Smart Offer
+  # ======================================================
+  - name: VZW_SOL_smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data.sql
+
+    inputs:
+      client: "V"
+      business_unit: "S"
+      cohort_id: "10"
+      date_start: "2026-01-30"
+      date_end: "2026-02-13"
+
+    filters:
+      exclude_site_suffixes: ["trn"]
+
+    outliers:
+      denominator_limit: 100 #smart offer denominator needs to be multiplied by 10 to account for all smart offer behaviors. This equates to 10 calls
+      outlier_limit_target: calc
+      outlier_limit: 0.25
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+    coaching_override: "Smart Offer"
+    reference_link: "https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare"

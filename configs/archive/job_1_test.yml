@@ -1,0 +1,82 @@
+# ==========================================================
+# GLOBAL DEFAULTS
+# ==========================================================
+defaults:
+
+  # Where compiled SQL templates live
+  sql_templates_dir: sql_templates
+
+  # Where Excel outputs are written
+  output_dir: C:/Users/nathan.taylor/Asurion/Coaching & Technology - BPC Data/Proposed_Cohorts
+
+   # Log directory
+  log_dir: logs
+
+   # Optional global behavior flags
+  apply_site_exclusions_by_default: true
+
+# ==========================================================
+# JOB DEFINITIONS
+# ==========================================================
+jobs:
+
+  
+  # ======================================================
+  #  15 VZW SOL – Trust Building - looks at ERP and then Cancel Rate as a secondary filter
+  # ======================================================
+- name: VZW_SOL_trust_building
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: erp
+    cohort_id: '13'
+    date_start: '2026-01-30'
+    date_end: '2026-02-13'
+
+  coaching_override: Trust Building
+  reference_link: https://app.powerbi.com/groups/me/reports/0109b8aa-01a4-4f93-8457-2d588b64e1a4/ReportSectionf67913b8dea87eb48b24?openReportSource=ReportInvitation&ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi
+
+  validity:
+    denominator_limit: 3
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 80
+    metric_direction: higher_is_good
+    outlier_side: worst
+
+  output:
+    filter_to_comparison_outliers: cancellation_rate
+    promote_comparison_metrics: cancellation_rate
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: cancellation_rate
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic_filtered.sql
+
+    inputs_override:
+      metric: "Cancellation Rate"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.5
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+    
+
