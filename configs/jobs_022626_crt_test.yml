@@ -1,0 +1,435 @@
+# ==========================================================
+# GLOBAL DEFAULTS
+# ==========================================================
+defaults:
+
+  # Where compiled SQL templates live
+  sql_templates_dir: sql_templates
+
+  # Where Excel outputs are written
+  output_dir: C:/Users/nathan.taylor/Asurion/Coaching & Technology - BPC Data/Proposed_Cohorts
+
+   # Log directory
+  log_dir: logs
+
+   # Optional global behavior flags
+  apply_site_exclusions_by_default: true
+
+# ==========================================================
+# JOB DEFINITIONS
+# ==========================================================
+jobs:
+
+  # ======================================================
+  #  15 VZW SOL – CRT Holdtime
+  # ======================================================
+- name: VZW_SOL_CRT_Holdtime
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: CRT
+    cohort_id: '15'
+    date_start: '2026-02-13'
+    date_end: '2026-02-27'
+
+  coaching_override: CRT Holdtime
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 1500
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  output:
+    filter_to_comparison_outliers: hold_time
+    promote_comparison_metrics: hold_time
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: hold_time
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic_filtered.sql
+
+    inputs_override:
+      metric: "Hold Time"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: percentile
+      outlier_limit: 0.75
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+  # ======================================================
+  #  15 VZW SOL – CRT Callback
+  # ======================================================
+- name: VZW_SOL_CRT_Callback
+
+  query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: CRT
+    cohort_id: '15'
+    date_start: '2026-02-13'
+    date_end: '2026-02-27'
+
+  coaching_override: CRT Callback
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 1500
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  output:
+    filter_to_comparison_outliers: callback_rate
+    promote_comparison_metrics: callback_rate
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: callback_rate
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic_filtered.sql
+
+    inputs_override:
+      metric: callback_rate
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: percentile
+      outlier_limit: 0.75
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+
+  # ======================================================
+  #  15 ATT SOL – CRT Holdtime
+  # ======================================================
+- name: ATT_SOL_CRT_Holdtime
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: CRT
+    cohort_id: '15'
+    date_start: '2026-02-13'
+    date_end: '2026-02-27'
+
+  coaching_override: CRT Holdtime
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 1200
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  output:
+    filter_to_comparison_outliers: hold_time
+    promote_comparison_metrics: hold_time
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: hold_time
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic_filtered.sql
+
+    inputs_override:
+      metric: "Hold Time"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: percentile
+      outlier_limit: 0.75
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+  # ======================================================
+  #  15 ATT SOL – CRT Callback
+  # ======================================================
+- name: ATT_SOL_CRT_Callback
+
+  query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: CRT
+    cohort_id: '15'
+    date_start: '2026-02-13'
+    date_end: '2026-02-27'
+
+  coaching_override: CRT Callback
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 1200
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  output:
+    filter_to_comparison_outliers: callback_rate
+    promote_comparison_metrics: callback_rate
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: callback_rate
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic_filtered.sql
+
+    inputs_override:
+      metric: callback_rate
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: percentile
+      outlier_limit: 0.75
+      metric_direction: lower_is_good
+      outlier_side: worst
+
+
+  # ======================================================
+  #  15 VZW SOL – CRT Holdtime
+  # ======================================================
+- name: VZW_SOL_CRT_Holdtime_no_filter
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: "Hold Time"
+    cohort_id: '15'
+    date_start: '2026-02-13'
+    date_end: '2026-02-27'
+
+  coaching_override: CRT Holdtime no filter
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.75
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  output: []
+
+  comparisons: []
+
+  # ======================================================
+  #  15 VZW SOL – CRT Callback
+  # ======================================================
+- name: VZW_SOL_CRT_Callback_no_filter
+
+  query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: callback_rate
+    cohort_id: '15'
+    date_start: '2026-02-13'
+    date_end: '2026-02-27'
+ 
+  coaching_override: CRT Callback no filter
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.75
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  output: []
+
+  comparisons: []
+
+
+  # ======================================================
+  #  15 VZW SOL – CRT Hangup
+  # ======================================================
+- name: VZW_SOL_CRT_Hangup
+
+  query:
+    query_type: smart_offer
+    sql_template: transfer_hangup.sql
+
+  inputs:
+    client: Verizon
+    business_unit: Soluto
+    cohort_id: '1'
+    date_start: '2026-02-13'
+    date_end: '2026-02-27'
+
+  coaching_override: CRT Hangup
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 5
+
+  eligibility:
+    site_exclude_contains: []
+
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.75
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []
+
+
+  # ======================================================
+  #  15 ATT SOL – CRT Callback
+  # ======================================================
+- name: ATT_SOL_CRT_Callback_no_filter
+
+  query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: callback_rate
+    cohort_id: '15'
+    date_start: '2026-02-13'
+    date_end: '2026-02-27'
+
+  coaching_override: CRT Callback no filter
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.75
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  output: []
+
+  comparisons: []
+
+  # ======================================================
+  #  15 ATT SOL – CRT Hangup
+  # ======================================================
+- name: ATT_SOL_CRT_Hangup
+
+  query:
+    query_type: smart_offer
+    sql_template: transfer_hangup.sql
+
+  inputs:
+    client: AT&T
+    business_unit: Soluto
+    cohort_id: '1'
+    date_start: '2026-02-13'
+    date_end: '2026-02-27'
+
+  coaching_override: CRT Hangup
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 5
+
+  eligibility:
+    site_exclude_contains: []
+
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.75
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []
+  output: []
+
+  comparisons: []
+  
