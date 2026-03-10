@@ -33,9 +33,9 @@ jobs:
   inputs:
     client: MOB-AT&T
     metric: Hold Time
-    cohort_id: '4'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '5'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: AHT Hold Time
   reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=e929be17-0048-4c55-b608-281f82cd1896
@@ -67,9 +67,9 @@ jobs:
   inputs:
     client: MOB-AT&T
     metric: Talk Time
-    cohort_id: '4'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '5'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: AHT Talk Time
   reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=e929be17-0048-4c55-b608-281f82cd1896
@@ -101,9 +101,9 @@ jobs:
   inputs:
     client: A
     business_unit: M
-    cohort_id: '4'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '5'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -135,9 +135,9 @@ jobs:
   inputs:
     client: MOB-AT&T
     metric: OCR
-    cohort_id: '6'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '7'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: OCR Improvement
   reference_link: https://app.powerbi.com/groups/me/reports/84002b28-3d13-4020-a787-3d635c9923be/ReportSectionc53c8b56e21c87beea52?experience=power-bi
@@ -169,9 +169,9 @@ jobs:
   inputs:
     client: MOB-AT&T
     metric: Client Transfers
-    cohort_id: '4'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '5'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: Increased Transfer Rate
   reference_link: https://app.powerbi.com/groups/me/reports/84002b28-3d13-4020-a787-3d635c9923be/ReportSectionc53c8b56e21c87beea52?experience=power-bi
@@ -203,9 +203,9 @@ jobs:
   inputs:
     client: McAfee
     metric: CRT
-    cohort_id: '10'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '11'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: Efficient Issue Resolution
   reference_link: https://app.prod-uswest04.observe.ai/reporting-dashboard/111
@@ -237,9 +237,9 @@ jobs:
   inputs:
     client: McAfee
     metric: cancellation rate
-    cohort_id: '10'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '11'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: Cancel Rate Reduction
   reference_link: https://app.powerbi.com/groups/me/reports/0109b8aa-01a4-4f93-8457-2d588b64e1a
@@ -272,9 +272,9 @@ jobs:
   inputs:
     client: MOB-Verizon
     metric: Hold Time
-    cohort_id: '4'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '5'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: AHT Hold Time
   reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=3895560e-05e6-45a1-be3c-45aa5ce4068d
@@ -306,9 +306,9 @@ jobs:
   inputs:
     client: MOB-Verizon
     metric: Talk Time
-    cohort_id: '4'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '5'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: AHT Talk Time
   reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=3895560e-05e6-45a1-be3c-45aa5ce4068d
@@ -340,9 +340,9 @@ jobs:
   inputs:
     client: V
     business_unit: M
-    cohort_id: '4'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '5'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -375,9 +375,9 @@ jobs:
   inputs:
     client: MOB-Verizon
     metric: OCR
-    cohort_id: '6'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '7'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: OCR Improvement
   reference_link: https://app.powerbi.com/groups/me/reports/84002b28-3d13-4020-a787-3d635c9923be/ReportSectionc53c8b56e21c87beea52?experience=power-bi
@@ -409,9 +409,9 @@ jobs:
   inputs:
     client: PSS-Verizon
     metric: erp
-    cohort_id: '13'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '14'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: Sentiment
   reference_link: https://app.powerbi.com/links/3V-89eNz-H?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -443,9 +443,9 @@ jobs:
   inputs:
     client: PSS-Verizon
     metric: nsp100
-    cohort_id: '16'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '17'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: Sales Confidence
   reference_link: https://app.powerbi.com/groups/me/reports/0109b8aa-01a4-4f93-8457-2d588b64e1a4/ReportSectionf67913b8dea87eb48b24?openReportSource=ReportInvitation&ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi
@@ -477,9 +477,9 @@ jobs:
   inputs:
     client: V
     business_unit: S
-    cohort_id: '13'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '14'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -511,9 +511,9 @@ jobs:
   inputs:
     client: PSS-AT&T
     metric: callback_rate
-    cohort_id: '3'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '4'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: CRT Callback
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -547,9 +547,9 @@ jobs:
   inputs:
     client: PSS-AT&T
     metric: "Hold Time"
-    cohort_id: '3'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '4'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: CRT Holdtime
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -583,9 +583,9 @@ jobs:
   inputs:
     client: PSS-Verizon
     metric: "Hold Time"
-    cohort_id: '4'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '5'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: CRT Holdtime
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -619,9 +619,9 @@ jobs:
   inputs:
     client: PSS-Verizon
     metric: callback_rate
-    cohort_id: '4'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '5'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
  
   coaching_override: CRT Callback
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -655,9 +655,9 @@ jobs:
   inputs:
     client: AT&T
     business_unit: Soluto
-    cohort_id: '3'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '4'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: CRT Hangup
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -691,9 +691,9 @@ jobs:
   inputs:
     client: Verizon
     business_unit: Soluto
-    cohort_id: '4'
-    date_start: '2026-02-20'
-    date_end: '2026-03-06'
+    cohort_id: '5'
+    date_start: '2026-02-27'
+    date_end: '2026-03-13'
 
   coaching_override: CRT Hangup
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
