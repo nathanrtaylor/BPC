@@ -534,7 +534,24 @@ jobs:
   output: []
 
   comparisons: []
-  
+
+  enrichments:
+    - name: recording_link
+      query:
+        query_type: recording
+        sql_template: outdial_recording_links.sql
+      inputs_override:
+        client: "AT&T"
+        business_unit: "Soluto"
+        date_start: "2026-02-27"
+        date_end: "2026-03-13"
+        min_outdial_seconds: 90
+      join:
+        on: ["expert_id"]
+        how: left
+      map_columns:
+        recording_link: reference_link  
+
   # ======================================================
   #  16 ATT SOL – CRT Holdtime
   # ======================================================
@@ -569,7 +586,24 @@ jobs:
 
   output: []
 
-  comparisons: []  
+  comparisons: []
+  
+  enrichments:
+    - name: recording_link
+      query:
+        query_type: recording
+        sql_template: outdial_recording_links.sql
+      inputs_override:
+        client: "AT&T"
+        business_unit: "Soluto"
+        date_start: "2026-02-27"
+        date_end: "2026-03-13"
+        min_outdial_seconds: 90
+      join:
+        on: ["expert_id"]
+        how: left
+      map_columns:
+        recording_link: reference_link    
 
   # ======================================================
   #  17 VZW SOL – CRT Holdtime
@@ -607,6 +641,23 @@ jobs:
 
   comparisons: []
 
+  enrichments:
+    - name: recording_link
+      query:
+        query_type: recording
+        sql_template: outdial_recording_links.sql
+      inputs_override:
+        client: "Verizon"
+        business_unit: "Soluto"
+        date_start: "2026-02-27"
+        date_end: "2026-03-13"
+        min_outdial_seconds: 90
+      join:
+        on: ["expert_id"]
+        how: left
+      map_columns:
+        recording_link: reference_link  
+
   # ======================================================
   #  18 VZW SOL – CRT Callback
   # ======================================================
@@ -642,6 +693,23 @@ jobs:
   output: []
 
   comparisons: []
+
+  enrichments:
+    - name: recording_link
+      query:
+        query_type: recording
+        sql_template: outdial_recording_links.sql
+      inputs_override:
+        client: "Verizon"
+        business_unit: "Soluto"
+        date_start: "2026-02-27"
+        date_end: "2026-03-13"
+        min_outdial_seconds: 90
+      join:
+        on: ["expert_id"]
+        how: left
+      map_columns:
+        recording_link: reference_link  
 
   # ======================================================
   #  19 ATT SOL – CRT Hangup
@@ -679,6 +747,23 @@ jobs:
   comparisons: []
   output: []
 
+  enrichments:
+    - name: recording_link
+      query:
+        query_type: recording
+        sql_template: outdial_recording_links.sql
+      inputs_override:
+        client: "AT&T"
+        business_unit: "Soluto"
+        date_start: "2026-02-27"
+        date_end: "2026-03-13"
+        min_outdial_seconds: 90
+      join:
+        on: ["expert_id"]
+        how: left
+      map_columns:
+        recording_link: reference_link
+
   # ======================================================
   #  20 VZW SOL – CRT Hangup
   # ======================================================
@@ -713,3 +798,20 @@ jobs:
     outlier_side: worst
 
   comparisons: []
+
+  enrichments:
+    - name: recording_link
+      query:
+        query_type: recording
+        sql_template: outdial_recording_links.sql
+      inputs_override:
+        client: "Verizon"
+        business_unit: "Soluto"
+        date_start: "2026-02-27"
+        date_end: "2026-03-13"
+        min_outdial_seconds: 90
+      join:
+        on: ["expert_id"]
+        how: left
+      map_columns:
+        recording_link: reference_link

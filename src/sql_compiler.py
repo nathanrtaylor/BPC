@@ -2,7 +2,7 @@
 """Load SQL template and compile it with literal bound params using SQLAlchemy."""
 
 from pathlib import Path
-from sqlalchemy.sql import text
+from sqlalchemy.sql import text, bindparam
 from sqlalchemy.engine import Engine
 from typing import Dict
 

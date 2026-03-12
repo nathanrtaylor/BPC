@@ -9,7 +9,6 @@ Pipeline stages (explicit):
 4) Selection             (outlier selection: percentile/calc + best/worst)
 5) Comparisons           (optional secondary metric pulls for cohort expert_ids + join + optional flagging)
 6) Output shaping        (optional: filter to comparison outliers; promote comparison num/den/calc)
-7) Enrichments           (optional post-shaping lookups for final expert_ids + join; e.g., call recording links)
 
 Path behavior:
 - PROJECT ROOT inferred as parent of config directory (expects <root>/configs/jobs.yml)
@@ -174,8 +173,7 @@ def run_job(engine, job: Dict[str, Any], defaults: Dict[str, Any], project_root:
     df_out = df_out.copy()
     df_out["cohort"] = job.get("inputs", {}).get("cohort_id", "")
     df_out["coaching_override"] = job.get("coaching_override", "")
-    # Avoid colliding with enrichment recording_link column
-    df_out["reference_link"] = job.get("reference_link", "")
+    df_out["recording_link"] = job.get("reference_link", "")
 
     # ----- Stage 5: Comparisons (optional) -----
     comparisons = job.get("comparisons") or []
@@ -304,65 +302,6 @@ def run_job(engine, job: Dict[str, Any], defaults: Dict[str, Any], project_root:
         df_out["calc"] = df_out[comp_calc]
 
         logger.info("[%s] Promoted %s__num/den/calc to primary num/den/calc", job_name, promote_name)
-
-    # ----- Stage 7: Enrichments (optional; post-shaping) -----
-    # This runs AFTER output shaping so it only queries for the final expert set written to Excel.
-    enrichments = job.get("enrichments") or []
-    if enrichments and not df_out.empty:
-        if "expert_id" not in df_out.columns:
-            raise KeyError("Enrichments require 'expert_id' column in the output dataframe.")
-
-        final_ids = df_out["expert_id"].dropna().unique().tolist()
-        logger.info("[%s] Running %d enrichment(s) for %d expert_id(s)", job_name, len(enrichments), len(final_ids))
-
-        for enr in enrichments:
-            enr_name = enr.get("name", "enrichment")
-            enr_query = enr.get("query", {}) or {}
-            enr_template = enr_query.get("sql_template")
-            if not enr_template:
-                raise KeyError(f"Enrichment '{enr_name}' missing query.sql_template")
-
-            enr_inputs_override = enr.get("inputs_override", {}) or {}
-            enr_job = {
-                "query": enr_query,
-                "inputs": {**(job.get("inputs", {}) or {}), **enr_inputs_override},
-            }
-            enr_job = apply_default_inputs(enr_job, defaults)
-
-            enr_params = build_query_params(enr_job)
-            enr_params["expert_ids"] = final_ids
-
-            enr_sql_path = resolve_template_path(project_root, sql_templates_dir, enr_template)
-            if not enr_sql_path.exists():
-                raise FileNotFoundError(f"Enrichment SQL template not found: {enr_sql_path}")
-
-            enr_sql_text = read_text_utf8_sig(enr_sql_path)
-            enr_df = run_sql(engine, enr_sql_text, enr_params, expanding_keys=["expert_ids"])
-            logger.info("[%s] Enrichment '%s' rows: %d", job_name, enr_name, len(enr_df))
-
-            # Optional: map/rename enrichment columns (e.g., {"recording_link":"recording_link"})
-            col_map = enr.get("map_columns", {}) or {}
-            if col_map:
-                enr_df = enr_df.rename(columns=col_map)
-
-            join_cfg = enr.get("join", {}) or {}
-            join_on = join_cfg.get("on", ["expert_id"])
-            how = join_cfg.get("how", "left")
-
-            df_out = df_out.merge(
-                enr_df,
-                on=join_on,
-                how=how,
-                suffixes=("", "__enr")
-            )
-
-            # If enrichment provided reference_link, overwrite original
-            if "reference_link__enr" in df_out.columns:
-                df_out["reference_link"] = df_out["reference_link__enr"]
-                df_out = df_out.drop(columns=["reference_link__enr"])
-
-    elif enrichments and df_out.empty:
-        logger.info("[%s] Output empty; skipping enrichments.", job_name)
 
     # ----- Output -----
     output_dir_cfg = defaults.get("output_dir", "outputs/excel")

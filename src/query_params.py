@@ -29,11 +29,25 @@ def _smart_offer_params(job: Dict[str, Any]) -> Dict[str, Any]:
         "end_date": inputs["date_end"],
     }
 
+def _recording_params(job: Dict[str, Any]) -> Dict[str, Any]:
+    inputs = job.get("inputs", {})
+    required = ["client", "business_unit", "date_start", "date_end"]
+    missing = [r for r in required if r not in inputs]
+    if missing:
+        raise KeyError(f"Missing required inputs for recording query: {missing}")
+    return {
+        "client": inputs["client"],
+        "business_unit": inputs["business_unit"],
+        "start_date": inputs["date_start"],
+        "end_date": inputs["date_end"],
+        "min_outdial_seconds": inputs.get("min_outdial_seconds", 90),
+    }
 
 # Registry: add new query types here
 QUERY_PARAM_BUILDERS: Dict[str, Callable[[Dict[str, Any]], Dict[str, Any]]] = {
     "metric": _metric_params,
     "smart_offer": _smart_offer_params,
+    "recording": _recording_params,
 }
 
 
@@ -56,3 +70,5 @@ def build_query_params(job: Dict[str, Any]) -> Dict[str, Any]:
     # override / extend
     params.update(extra)
     return params
+
+print(QUERY_PARAM_BUILDERS.keys())
