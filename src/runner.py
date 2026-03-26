@@ -175,7 +175,7 @@ def run_job(engine, job: Dict[str, Any], defaults: Dict[str, Any], project_root:
     df_out["cohort"] = job.get("inputs", {}).get("cohort_id", "")
     df_out["coaching_override"] = job.get("coaching_override", "")
     # Avoid colliding with enrichment recording_link column
-    df_out["reference_link"] = job.get("reference_link", "")
+    df_out["recording_link"] = job.get("reference_link", "")
 
     # ----- Stage 5: Comparisons (optional) -----
     comparisons = job.get("comparisons") or []
@@ -357,9 +357,9 @@ def run_job(engine, job: Dict[str, Any], defaults: Dict[str, Any], project_root:
             )
 
             # If enrichment provided reference_link, overwrite original
-            if "reference_link__enr" in df_out.columns:
-                df_out["reference_link"] = df_out["reference_link__enr"]
-                df_out = df_out.drop(columns=["reference_link__enr"])
+            if "recording_link__enr" in df_out.columns:
+                df_out["recording_link"] = df_out["recording_link__enr"]
+                df_out = df_out.drop(columns=["recording_link__enr"])
 
     elif enrichments and df_out.empty:
         logger.info("[%s] Output empty; skipping enrichments.", job_name)
