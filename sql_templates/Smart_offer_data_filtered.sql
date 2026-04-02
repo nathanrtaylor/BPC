@@ -488,6 +488,8 @@ WHERE
 	cs."Client_" = :client
 	AND
 	cs."BusinessUnit_" = :business_unit
+    AND
+    CAST(cs.Employee as VARCHAR) IN :expert_ids
 	    
     
 group BY BusinessUnit_, Client_, Employee

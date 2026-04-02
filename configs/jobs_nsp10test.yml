@@ -1,0 +1,157 @@
+# ==========================================================
+# GLOBAL DEFAULTS
+# ==========================================================
+defaults:
+
+  # Where compiled SQL templates live
+  sql_templates_dir: sql_templates
+
+  # Where Excel outputs are written
+  output_dir: C:/Users/nathan.taylor/Asurion/Coaching & Technology - BPC Data/Proposed_Cohorts
+
+   # Log directory
+  log_dir: logs
+
+   # Optional global behavior flags
+  apply_site_exclusions_by_default: true
+
+# ==========================================================
+# JOB DEFINITIONS
+# ==========================================================
+jobs:
+
+  # ======================================================
+    # 6 VZW Soluto – CRT catcher
+    # ======================================================
+- name: VZW_SOL_CRT_Catcher
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: CRT
+    cohort_id: '1'
+    date_start: '2026-03-20'
+    date_end: '2026-04-03'
+
+  coaching_override: CRT Catcher
+  reference_link: https://app.prod-uswest04.observe.ai/reporting-dashboard/111
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []
+
+   # ======================================================
+    # 6 VZW Mobility – CRT catcher
+    # ======================================================
+- name: VZW_MOB_CRT_Catcher
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-Verizon
+    metric: CRT
+    cohort_id: '1'
+    date_start: '2026-03-20'
+    date_end: '2026-04-03'
+
+  coaching_override: CRT Catcher
+  reference_link: https://app.prod-uswest04.observe.ai/reporting-dashboard/111
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []
+
+ # ======================================================
+    # 6 ATT Soluto – CRT catcher
+    # ======================================================
+- name: ATT_SOL_CRT_Catcher
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: CRT
+    cohort_id: '1'
+    date_start: '2026-03-20'
+    date_end: '2026-04-03'
+
+  coaching_override: CRT Catcher
+  reference_link: https://app.prod-uswest04.observe.ai/reporting-dashboard/111
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: [] 
+
+   # ======================================================
+    # 6 ATT Mobility – CRT catcher
+    # ======================================================
+- name: ATT_MOB_CRT_Catcher
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-AT&T
+    metric: CRT
+    cohort_id: '1'
+    date_start: '2026-03-20'
+    date_end: '2026-04-03'
+
+  coaching_override: CRT Catcher
+  reference_link: https://app.prod-uswest04.observe.ai/reporting-dashboard/111
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []  
