@@ -443,7 +443,7 @@ jobs:
   inputs:
     client: PSS-Verizon
     metric: nsp100
-    cohort_id: 20'
+    cohort_id: '20'
     date_start: '2026-03-20'
     date_end: '2026-04-03'
 
