@@ -32,9 +32,9 @@ jobs:
   inputs:
     client: McAfee
     metric: CRT
-    cohort_id: '15'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '16'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Efficient Issue Resolution
   reference_link: https://app.prod-uswest04.observe.ai/reporting-dashboard/111
@@ -66,9 +66,9 @@ jobs:
   inputs:
     client: McAfee
     metric: cancellation rate
-    cohort_id: '15'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '16'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Cancel Rate Reduction
   reference_link: https://app.powerbi.com/groups/me/reports/0109b8aa-01a4-4f93-8457-2d588b64e1a
@@ -100,9 +100,9 @@ jobs:
   inputs:
     client: PSS-Verizon
     metric: erp
-    cohort_id: '18'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '19'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Sentiment
   reference_link: https://app.powerbi.com/links/3V-89eNz-H?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -137,8 +137,8 @@ jobs:
     client: PSS-Verizon
     metric: "Hold Time"
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: CRT Holdtime
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -171,8 +171,8 @@ jobs:
       inputs_override:
         client: "Verizon"
         business_unit: "Soluto"
-        date_start: "2026-03-27"
-        date_end: "2026-04-10"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
         min_outdial_seconds: 90
       join:
         on: ["expert_id"]
@@ -193,8 +193,8 @@ jobs:
     client: PSS-Verizon
     metric: callback_rate
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
  
   coaching_override: CRT Callback
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -227,8 +227,8 @@ jobs:
       inputs_override:
         client: "Verizon"
         business_unit: "Soluto"
-        date_start: "2026-03-27"
-        date_end: "2026-04-10"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
         min_outdial_seconds: 90
       join:
         on: ["expert_id"]
@@ -249,8 +249,8 @@ jobs:
     client: PSS-Verizon
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales - Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -311,8 +311,8 @@ jobs:
     client: PSS-Verizon
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -375,8 +375,8 @@ jobs:
     client: PSS-AT&T
     metric: "Hold Time"
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: CRT Holdtime
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -409,8 +409,8 @@ jobs:
       inputs_override:
         client: "AT&T"
         business_unit: "Soluto"
-        date_start: "2026-03-27"
-        date_end: "2026-04-10"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
         min_outdial_seconds: 90
       join:
         on: ["expert_id"]
@@ -431,8 +431,8 @@ jobs:
     client: PSS-AT&T
     metric: callback_rate
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
  
   coaching_override: CRT Callback
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -465,8 +465,8 @@ jobs:
       inputs_override:
         client: "AT&T"
         business_unit: "Soluto"
-        date_start: "2026-03-27"
-        date_end: "2026-04-10"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
         min_outdial_seconds: 90
       join:
         on: ["expert_id"]
@@ -487,8 +487,8 @@ jobs:
     client: PSS-AT&T
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales - Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -549,8 +549,8 @@ jobs:
     client: PSS-AT&T
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -612,8 +612,8 @@ jobs:
     client: PSS-Verizon
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales - Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -671,8 +671,8 @@ jobs:
     client: PSS-Verizon
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -730,8 +730,8 @@ jobs:
     client: PSS-AT&T
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales - Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -789,8 +789,8 @@ jobs:
     client: PSS-AT&T
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -848,8 +848,8 @@ jobs:
     client: MOB-Verizon
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales - Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -907,8 +907,8 @@ jobs:
     client: MOB-Verizon
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -966,8 +966,8 @@ jobs:
     client: MOB-AT&T
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales - Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1025,8 +1025,8 @@ jobs:
     client: MOB-AT&T
     metric: nsp100
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1084,8 +1084,8 @@ jobs:
     client: PSS-Verizon
     metric: CRT
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1118,8 +1118,8 @@ jobs:
     client: MOB-Verizon
     metric: CRT
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1152,8 +1152,8 @@ jobs:
     client: PSS-AT&T
     metric: CRT
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1186,8 +1186,8 @@ jobs:
     client: MOB-AT&T
     metric: CRT
     cohort_id: '2'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1219,9 +1219,9 @@ jobs:
   inputs:
     client: MOB-Verizon
     metric: Talk Time
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: AHT Talk Time
   reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=3895560e-05e6-45a1-be3c-45aa5ce4068d
@@ -1256,9 +1256,9 @@ jobs:
   inputs:
     client: MOB-AT&T
     metric: Talk Time
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: AHT Talk Time
   reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=3895560e-05e6-45a1-be3c-45aa5ce4068d
@@ -1293,9 +1293,9 @@ jobs:
   inputs:
     client: PSS-Verizon
     metric: "Hold Time"
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: CRT Holdtime
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1328,8 +1328,8 @@ jobs:
       inputs_override:
         client: "Verizon"
         business_unit: "Soluto"
-        date_start: "2026-03-27"
-        date_end: "2026-04-10"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
         min_outdial_seconds: 90
       join:
         on: ["expert_id"]
@@ -1349,9 +1349,9 @@ jobs:
   inputs:
     client: PSS-Verizon
     metric: callback_rate
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
  
   coaching_override: CRT Callback
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1384,8 +1384,8 @@ jobs:
       inputs_override:
         client: "Verizon"
         business_unit: "Soluto"
-        date_start: "2026-03-27"
-        date_end: "2026-04-10"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
         min_outdial_seconds: 90
       join:
         on: ["expert_id"]
@@ -1405,9 +1405,9 @@ jobs:
   inputs:
     client: PSS-AT&T
     metric: "Hold Time"
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: CRT Holdtime
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1440,8 +1440,8 @@ jobs:
       inputs_override:
         client: "AT&T"
         business_unit: "Soluto"
-        date_start: "2026-03-27"
-        date_end: "2026-04-10"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
         min_outdial_seconds: 90
       join:
         on: ["expert_id"]
@@ -1461,9 +1461,9 @@ jobs:
   inputs:
     client: PSS-AT&T
     metric: callback_rate
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
  
   coaching_override: CRT Callback
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1496,8 +1496,8 @@ jobs:
       inputs_override:
         client: "AT&T"
         business_unit: "Soluto"
-        date_start: "2026-03-27"
-        date_end: "2026-04-10"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
         min_outdial_seconds: 90
       join:
         on: ["expert_id"]
@@ -1517,9 +1517,9 @@ jobs:
   inputs:
     client: PSS-AT&T
     metric: nsp100
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales - Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1579,9 +1579,9 @@ jobs:
   inputs:
     client: MOB-AT&T
     metric: nsp100
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales - Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1641,9 +1641,9 @@ jobs:
   inputs:
     client: MOB-Verizon
     metric: nsp100
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales - Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1703,9 +1703,9 @@ jobs:
   inputs:
     client: PSS-Verizon
     metric: nsp100
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales - Smart Offer
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1765,9 +1765,9 @@ jobs:
   inputs:
     client: MOB-AT&T
     metric: nsp100
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1827,9 +1827,9 @@ jobs:
   inputs:
     client: MOB-Verizon
     metric: nsp100
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1889,9 +1889,9 @@ jobs:
   inputs:
     client: PSS-AT&T
     metric: nsp100
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1951,9 +1951,9 @@ jobs:
   inputs:
     client: PSS-Verizon
     metric: nsp100
-    cohort_id: '1'
-    date_start: '2026-03-27'
-    date_end: '2026-04-10'
+    cohort_id: '2'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
 
   coaching_override: Quality Sales
   reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
@@ -1967,6 +1967,800 @@ jobs:
       - column: site
         op: "=="
         value: bears 
+  
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 0.04
+    metric_direction: higher_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "V"
+      business_unit: "S"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst 
+
+ # ======================================================
+  # 9 VZW MOB – Talk Time raptors
+  # ======================================================
+- name: VZW_MOB_talk_time_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-Verizon
+    metric: Talk Time
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: AHT Talk Time
+  reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=3895560e-05e6-45a1-be3c-45aa5ce4068d
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.75
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []
+
+  # ======================================================
+  # 9 ATT MOB – Talk Time raptors
+  # ======================================================
+- name: ATT_MOB_talk_time raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-AT&T
+    metric: Talk Time
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: AHT Talk Time
+  reference_link: https://app.powerbi.com/groups/me/reports/9cf56cf7-2d0d-4c8b-bb8a-b3faed06c4be/ReportSection2ba329c33808b7b666c2?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&experience=power-bi&clientSideAuth=0&bookmarkGuid=3895560e-05e6-45a1-be3c-45aa5ce4068d
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.75
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []
+
+ # ======================================================
+  #  4 VZW SOL – CRT Holdtime - raptors
+  # ======================================================
+- name: VZW_SOL_CRT_Holdtime_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: "Hold Time"
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: CRT Holdtime
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.66
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  output: []
+
+  comparisons: []
+
+  enrichments:
+    - name: recording_link
+      query:
+        query_type: recording
+        sql_template: outdial_recording_links.sql
+      inputs_override:
+        client: "Verizon"
+        business_unit: "Soluto"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
+        min_outdial_seconds: 90
+      join:
+        on: ["expert_id"]
+        how: left
+      map_columns:
+        recording_link: recording_link  
+
+  # ======================================================
+  #  5 VZW SOL – CRT Callback raptors
+  # ======================================================
+- name: VZW_SOL_CRT_Callback_raptors
+
+  query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: callback_rate
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+ 
+  coaching_override: CRT Callback
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors 
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.66
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  output: []
+
+  comparisons: []
+
+  enrichments:
+    - name: recording_link
+      query:
+        query_type: recording
+        sql_template: outdial_recording_links.sql
+      inputs_override:
+        client: "Verizon"
+        business_unit: "Soluto"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
+        min_outdial_seconds: 90
+      join:
+        on: ["expert_id"]
+        how: left
+      map_columns:
+        recording_link: recording_link  
+
+  # ======================================================
+  #  4 ATT SOL – CRT Holdtime - raptors
+  # ======================================================
+- name: ATT_SOL_CRT_Holdtime_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: "Hold Time"
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: CRT Holdtime
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.66
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  output: []
+
+  comparisons: []
+
+  enrichments:
+    - name: recording_link
+      query:
+        query_type: recording
+        sql_template: outdial_recording_links.sql
+      inputs_override:
+        client: "AT&T"
+        business_unit: "Soluto"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
+        min_outdial_seconds: 90
+      join:
+        on: ["expert_id"]
+        how: left
+      map_columns:
+        recording_link: recording_link  
+
+  # ======================================================
+  #  5 ATT SOL – CRT Callback raptors
+  # ======================================================
+- name: ATT_SOL_CRT_Callback_raptors
+
+  query:
+      query_type: metric
+      sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: callback_rate
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+ 
+  coaching_override: CRT Callback
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors 
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.66
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  output: []
+
+  comparisons: []
+
+  enrichments:
+    - name: recording_link
+      query:
+        query_type: recording
+        sql_template: outdial_recording_links.sql
+      inputs_override:
+        client: "AT&T"
+        business_unit: "Soluto"
+        date_start: "2026-04-03"
+        date_end: "2026-04-17"
+        min_outdial_seconds: 90
+      join:
+        on: ["expert_id"]
+        how: left
+      map_columns:
+        recording_link: recording_link  
+
+  # ======================================================
+  # 10 ATT SOL – Quality Sales Noncompliant raptors
+  # ======================================================
+- name: ATT_SOL_Quality_Sales_Noncompliant_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: nsp100
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Quality Sales - Smart Offer
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 50
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors 
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: .66
+    metric_direction: higher_is_good
+    outlier_side: best
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "A"
+      business_unit: "S"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+  # ======================================================
+  # 10 ATT MOB – Quality Sales Noncompliant raptors
+  # ======================================================
+- name: ATT_MOB_Quality_Sales_Noncompliant_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-AT&T
+    metric: nsp100
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Quality Sales - Smart Offer
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 50
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors 
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: .66
+    metric_direction: higher_is_good
+    outlier_side: best
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "A"
+      business_unit: "M"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+  # ======================================================
+  # 10 VZW MOB – Quality Sales Noncompliant raptors
+  # ======================================================
+- name: VZW_MOB_Quality_Sales_Noncompliant_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-Verizon
+    metric: nsp100
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Quality Sales - Smart Offer
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 50
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors 
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: .66
+    metric_direction: higher_is_good
+    outlier_side: best
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "V"
+      business_unit: "M"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+  # ======================================================
+  # 10 VZW SOL – Quality Sales Noncompliant raptors
+  # ======================================================
+- name: VZW_SOL_Quality_Sales_Noncompliant_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: nsp100
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Quality Sales - Smart Offer
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 50
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors 
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: .66
+    metric_direction: higher_is_good
+    outlier_side: best
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "V"
+      business_unit: "S"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+  # ======================================================
+  # 10 ATT MOB – Quality Sales Low Performance raptors
+  # ======================================================
+- name: ATT_MOB_Quality_Sales_Low_Performance_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-AT&T
+    metric: nsp100
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 20
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors 
+  
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 0.04
+    metric_direction: higher_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "A"
+      business_unit: "M"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst 
+
+ # ======================================================
+  # 10 VZW MOB – Quality Sales Low Performance raptors
+  # ======================================================
+- name: VZW_MOB_Quality_Sales_Low_Performance_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-Verizon
+    metric: nsp100
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 20
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors 
+  
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 0.04
+    metric_direction: higher_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "V"
+      business_unit: "M"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst 
+
+  # ======================================================
+  # 10 ATT SOL – Quality Sales Low Performance raptors
+  # ======================================================
+- name: ATT_SOL_Quality_Sales_Low_Performance_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: nsp100
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 20
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors 
+  
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 0.04
+    metric_direction: higher_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "A"
+      business_unit: "S"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst 
+
+ # ======================================================
+  # 10 VZW SOL – Quality Sales Low Performance raptors
+  # ======================================================
+- name: VZW_SOL_Quality_Sales_Low_Performance_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: nsp100
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 20
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  
+      - column: site
+        op: "=="
+        value: raptors 
   
   selection:
     outlier_limit_target: calc

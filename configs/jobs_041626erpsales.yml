@@ -1,0 +1,77 @@
+# ==========================================================
+# GLOBAL DEFAULTS
+# ==========================================================
+defaults:
+
+  # Where compiled SQL templates live
+  sql_templates_dir: sql_templates
+
+  # Where Excel outputs are written
+  output_dir: C:/Users/nathan.taylor/Asurion/Coaching & Technology - BPC Data/Proposed_Cohorts
+
+   # Log directory
+  log_dir: logs
+
+   # Optional global behavior flags
+  apply_site_exclusions_by_default: true
+
+# ==========================================================
+# JOB DEFINITIONS
+# ==========================================================
+jobs:
+
+  # ======================================================
+  # 10 VZW MOB – Quality Sales Noncompliant raptors
+  # ======================================================
+- name: VZW_MOB_Quality_Sales_Noncompliant_raptors
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: nsp100
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Quality Sales - Smart Offer
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 0
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: .55
+    metric_direction: higher_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: erp
+    promote_comparison_metrics: erp
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: erp
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic_filtered.sql
+
+    inputs_override: []
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: percentile
+      outlier_limit: 0.5
+      metric_direction: higher_is_good
+      outlier_side: worst
