@@ -1,0 +1,994 @@
+# ==========================================================
+# GLOBAL DEFAULTS
+# ==========================================================
+defaults:
+
+  # Where compiled SQL templates live
+  sql_templates_dir: sql_templates
+
+  # Where Excel outputs are written
+  output_dir: C:/Users/nathan.taylor/Asurion/Coaching & Technology - BPC Data/Proposed_Cohorts
+
+   # Log directory
+  log_dir: logs
+
+   # Optional global behavior flags
+  apply_site_exclusions_by_default: true
+
+# ==========================================================
+# JOB DEFINITIONS
+# ==========================================================
+jobs:
+
+    # ======================================================
+    # 1 Mcafee – CRT
+    # ======================================================
+- name: Mcafee_CRT
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: McAfee
+    metric: CRT
+    cohort_id: '18'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Efficient Issue Resolution
+  reference_link: https://app.prod-uswest04.observe.ai/reporting-dashboard/111
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 2000
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []
+
+    # ======================================================
+    # 2 Mcafee – Cancel Rate
+    # ======================================================
+- name: Mcafee_Cancel
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: McAfee
+    metric: cancellation rate
+    cohort_id: '18'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Cancel Rate Reduction
+  reference_link: https://app.powerbi.com/groups/me/reports/0109b8aa-01a4-4f93-8457-2d588b64e1a
+
+  validity:
+    denominator_limit: 1
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.8
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []
+
+  # ======================================================
+  # 10 VZW SOL – Quality Sales Noncompliant
+  # ======================================================
+- name: VZW_SOL_Quality_Sales_Noncompliant
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: nsp100
+    cohort_id: '5'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales - Smart Offer
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 50
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  []
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: .66
+    metric_direction: higher_is_good
+    outlier_side: best
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "V"
+      business_unit: "S"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+  # ======================================================
+  # 10 VZW SOL – Quality Sales Low Performance
+  # ======================================================
+- name: VZW_SOL_Quality_Sales_Low_Performance
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: nsp100
+    cohort_id: '5'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 20
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  []
+  
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 0.04
+    metric_direction: higher_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "V"
+      business_unit: "S"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+  # ======================================================
+  # 10 ATT SOL – Quality Sales Noncompliant
+  # ======================================================
+- name: ATT_SOL_Quality_Sales_Noncompliant
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: nsp100
+    cohort_id: '5'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales - Smart Offer
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 50
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  []
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: .66
+    metric_direction: higher_is_good
+    outlier_side: best
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "A"
+      business_unit: "S"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+  # ======================================================
+  # 10 ATT SOL – Quality Sales Low Performance
+  # ======================================================
+- name: ATT_SOL_Quality_Sales_Low_Performance
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: nsp100
+    cohort_id: '5'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 20
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  []
+  
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 0.04
+    metric_direction: higher_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "A"
+      business_unit: "S"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst      
+
+  # ======================================================
+  # 10 VZW MOB – Quality Sales Noncompliant
+  # ======================================================
+- name: VZW_MOB_Quality_Sales_Noncompliant
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-Verizon
+    metric: nsp100
+    cohort_id: '5'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales - Smart Offer
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 50
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  []
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: .66
+    metric_direction: higher_is_good
+    outlier_side: best
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "V"
+      business_unit: "M"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+  # ======================================================
+  # 10 VZW MOB – Quality Sales Low Performance
+  # ======================================================
+- name: VZW_MOB_Quality_Sales_Low_Performance
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-Verizon
+    metric: nsp100
+    cohort_id: '5'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 20
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  []
+  
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 0.04
+    metric_direction: higher_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "V"
+      business_unit: "M"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+  # ======================================================
+  # 10 ATT MOB – Quality Sales Noncompliant
+  # ======================================================
+- name: ATT_MOB_Quality_Sales_Noncompliant
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-AT&T
+    metric: nsp100
+    cohort_id: '5'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales - Smart Offer
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 50
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  []
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: .66
+    metric_direction: higher_is_good
+    outlier_side: best
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "A"
+      business_unit: "M"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst
+
+  # ======================================================
+  # 10 ATT MOB – Quality Sales Low Performance
+  # ======================================================
+- name: ATT_MOB_Quality_Sales_Low_Performance
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-AT&T
+    metric: nsp100
+    cohort_id: '5'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 20
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters:  []
+  
+  selection:
+    outlier_limit_target: calc
+    outlier_limit: 0.04
+    metric_direction: higher_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: smart_offer
+    promote_comparison_metrics: smart_offer
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: smart_offer
+
+    query:
+      query_type: smart_offer
+      sql_template: Smart_offer_data_filtered.sql
+
+    inputs_override:
+      metric: "Smart Offer"
+      client: "A"
+      business_unit: "M"
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: calc
+      outlier_limit: 0.6
+      metric_direction: higher_is_good
+      outlier_side: worst 
+
+   # ======================================================
+    # 6 VZW Soluto – CRT catcher
+    # ======================================================
+- name: VZW_SOL_CRT_Catcher
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: CRT
+    cohort_id: '5'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []
+
+   # ======================================================
+    # 6 VZW Mobility – AHT catcher
+    # ======================================================
+- name: VZW_MOB_AHT_Catcher
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-Verizon
+    metric: Talk Time
+    cohort_id: '1'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []
+
+ # ======================================================
+    # 6 ATT Soluto – CRT catcher
+    # ======================================================
+- name: ATT_SOL_CRT_Catcher
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: CRT
+    cohort_id: '5'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: [] 
+
+   # ======================================================
+    # 6 ATT Mobility – Talk Time catcher
+    # ======================================================
+- name: ATT_MOB_AHT_Catcher
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-AT&T
+    metric: Talk Time
+    cohort_id: '1'
+    date_start: '2026-04-17'
+    date_end: '2026-05-01'
+
+  coaching_override: Quality Sales
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+
+  validity:
+    denominator_limit: 10
+
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0
+    metric_direction: lower_is_good
+    outlier_side: worst
+
+  comparisons: []  
+
+  # ======================================================
+  # 10 VZW SOL – CRT/ERP
+  # ======================================================
+- name: VZW_SOL_CRT_ERP
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-Verizon
+    metric: CRT
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Efficient Experience
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 10
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.5
+    metric_direction: lower_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: erp
+    promote_comparison_metrics: erp
+    keep_original_primary_metrics: true
+
+  enrichments:
+    - name: recording_link
+      query:
+        query_type: recording
+        sql_template: long_call_recording_links.sql
+      inputs_override:
+        client: "Verizon"
+        business_unit: "Soluto"
+        date_start: "2026-04-17"
+        date_end: "2026-05-01"
+        min_outdial_seconds: 1500
+      join:
+        on: ["expert_id"]
+        how: left
+      map_columns:
+        recording_link: recording_link          
+
+  comparisons: 
+  - name: erp
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic_filtered.sql
+
+    inputs_override: []
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: percentile
+      outlier_limit: 0.5
+      metric_direction: higher_is_good
+      outlier_side: worst  
+  
+
+  # ======================================================
+  # 10 ATT SOL – CRT/NPS
+  # ======================================================
+- name: ATT_SOL_CRT_NPS
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: PSS-AT&T
+    metric: CRT
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Efficient Experience
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 10
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.5
+    metric_direction: lower_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: NPS
+    promote_comparison_metrics: NPS
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: NPS
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic_filtered.sql
+
+    inputs_override: []
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: percentile
+      outlier_limit: 0.5
+      metric_direction: higher_is_good
+      outlier_side: worst      
+
+  enrichments:
+  - name: recording_link
+    query:
+      query_type: recording
+      sql_template: long_call_recording_links.sql
+    inputs_override:
+      client: "AT&T"
+      business_unit: "Soluto"
+      date_start: "2026-04-17"
+      date_end: "2026-05-01"
+      min_outdial_seconds: 1500
+    join:
+      on: ["expert_id"]
+      how: left
+    map_columns:
+      recording_link: recording_link        
+     
+
+
+
+  # ======================================================
+  # 10 VZW MOB – AHT/NPS
+  # ======================================================
+- name: VZW_MOB_AHT_NPS
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-Verizon
+    metric: Talk Time
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Efficient Experience
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 10
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.5
+    metric_direction: lower_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: NPS
+    promote_comparison_metrics: NPS
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: NPS
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic_filtered.sql
+
+    inputs_override: []
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: percentile
+      outlier_limit: 0.5
+      metric_direction: higher_is_good
+      outlier_side: worst 
+
+  enrichments:
+  - name: recording_link
+    query:
+      query_type: recording
+      sql_template: long_call_recording_links.sql
+    inputs_override:
+      client: "Verizon"
+      business_unit: "Mobility"
+      date_start: "2026-04-17"
+      date_end: "2026-05-01"
+      min_outdial_seconds: 1500
+    join:
+      on: ["expert_id"]
+      how: left
+    map_columns:
+      recording_link: recording_link        
+         
+
+  # ======================================================
+  # 10 ATT MOB – AHT/NPS
+  # ======================================================
+- name: ATT_MOB_AHT_NPS
+
+  query:
+    query_type: metric
+    sql_template: epm_metric_data_generic.sql
+
+  inputs:
+    client: MOB-AT&T
+    metric: Talk Time
+    cohort_id: '1'
+    date_start: '2026-04-03'
+    date_end: '2026-04-17'
+
+  coaching_override: Efficient Experience
+  reference_link: https://app.powerbi.com/groups/me/reports/30d76537-2dea-4dc8-a2ea-b1d085303f15?ctid=64e5ad32-cb04-44df-8896-bed5d7792429&pbi_source=linkShare
+  
+  validity:
+    denominator_limit: 10
+  
+  eligibility:
+    site_exclude_contains: ["trn"]
+    filters: []
+  
+  selection:
+    outlier_limit_target: percentile
+    outlier_limit: 0.5
+    metric_direction: lower_is_good
+    outlier_side: worst
+  
+  output:
+    filter_to_comparison_outliers: NPS
+    promote_comparison_metrics: NPS
+    keep_original_primary_metrics: true
+
+  comparisons: 
+  - name: NPS
+
+    query:
+      query_type: metric
+      sql_template: epm_metric_data_generic_filtered.sql
+
+    inputs_override: []
+
+    join:
+      on: ["expert_id"]
+      how: left
+
+    selection:
+      outlier_limit_target: percentile
+      outlier_limit: 0.5
+      metric_direction: higher_is_good
+      outlier_side: worst  
+
+  enrichments:
+  - name: recording_link
+    query:
+      query_type: recording
+      sql_template: long_call_recording_links.sql
+    inputs_override:
+      client: "AT&T"
+      business_unit: "Mobility"
+      date_start: "2026-04-17"
+      date_end: "2026-05-01"
+      min_outdial_seconds: 1500
+    join:
+      on: ["expert_id"]
+      how: left
+    map_columns:
+      recording_link: recording_link        
