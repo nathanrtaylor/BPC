@@ -1,8 +1,8 @@
 import yaml
 
 # ---- Specify your two YAML files here ----
-FILE_1 = "configs/jobs_061826.yml"
-FILE_2 = "configs/jobs_062526.yml"
+FILE_1 = "configs/jobs_062526.yml"
+FILE_2 = "configs/jobs_070126.yml"
 
 
 def load_yaml_as_dict(path):
