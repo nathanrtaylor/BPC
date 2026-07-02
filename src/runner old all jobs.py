@@ -389,7 +389,7 @@ def run_job(engine, job: Dict[str, Any], defaults: Dict[str, Any], project_root:
     }
 
 
-def run_all_jobs(config_path: str, dry_run: bool = False, job_name: Optional[str] = None) -> Dict[str, Any]:
+def run_all_jobs(config_path: str, dry_run: bool = False) -> Dict[str, Any]:
     cfg_path = Path(config_path).resolve()
     project_root = infer_project_root(cfg_path)
 
@@ -405,19 +405,6 @@ def run_all_jobs(config_path: str, dry_run: bool = False, job_name: Optional[str
 
     results: Dict[str, Any] = {}
     jobs = cfg.get("jobs", []) or []
-
-    if job_name:
-        matched_jobs = [j for j in jobs if j.get("name") == job_name]
-
-        if not matched_jobs:
-            available = ", ".join(str(j.get("name", "unnamed")) for j in jobs)
-            raise ValueError(
-                f"No job named '{job_name}' found in config. "
-                f"Available jobs: {available}"
-            )
-
-        jobs = matched_jobs
-        logger.info("Running only selected job: %s", job_name)
 
     for job in jobs:
         job = apply_default_inputs(job, defaults)
@@ -456,9 +443,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run outlier analysis jobs from a YAML config")
     parser.add_argument("config", help="Path to YAML config file (e.g. configs/jobs_new_format.yml)")
     parser.add_argument("--dry-run", action="store_true", help="Validate jobs without executing queries or saving outputs")
-    parser.add_argument("-j", "--job", help="Run only the specified job name from the YAML config")
     args = parser.parse_args()
 
-    res = run_all_jobs(args.config, dry_run=args.dry_run, job_name=args.job)
+    res = run_all_jobs(args.config, dry_run=args.dry_run)
     for k, v in res.items():
         print(f"{k}: {v.get('status')} (rows_out={v.get('rows_out', '-')})")
