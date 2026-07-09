@@ -43,11 +43,25 @@ def _recording_params(job: Dict[str, Any]) -> Dict[str, Any]:
         "min_outdial_seconds": inputs.get("min_outdial_seconds", 90),
     }
 
+def _fmip_params(job: Dict[str, Any]) -> Dict[str, Any]:
+    inputs = job.get("inputs", {})
+    required = ["client", "business_unit", "date_start", "date_end"]
+    missing = [r for r in required if r not in inputs]
+    if missing:
+        raise KeyError(f"Missing required inputs for fmip query: {missing}")
+    return {
+        "client": inputs["client"],
+        "business_unit": inputs["business_unit"],
+        "start_date": inputs["date_start"],
+        "end_date": inputs["date_end"],
+    }
+
 # Registry: add new query types here
 QUERY_PARAM_BUILDERS: Dict[str, Callable[[Dict[str, Any]], Dict[str, Any]]] = {
     "metric": _metric_params,
     "smart_offer": _smart_offer_params,
     "recording": _recording_params,
+    "fmip": _fmip_params,
 }
 
 
