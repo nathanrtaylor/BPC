@@ -84,5 +84,3 @@ def build_query_params(job: Dict[str, Any]) -> Dict[str, Any]:
     # override / extend
     params.update(extra)
     return params
-
-print(QUERY_PARAM_BUILDERS.keys())
